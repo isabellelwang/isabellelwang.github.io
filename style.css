@@ -1,0 +1,34 @@
+*{
+    background-color: aliceblue; 
+}
+.pwebsite{
+    display: flex; 
+    padding: 25px; 
+    align-items: center; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.pwebsite-img{
+    height: fit-content; 
+    width: fit-content;
+}
+
+.pwebsite-img img{
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover; 
+    border-radius: 10px;
+    border-color: black; 
+}
+
+.pwebsite-details {
+    align-self: center; 
+}
+
+.pwebsite-details {
+    padding: 15px; 
+    background-color: bisque; 
+    color: cadetblue;
+}
+
+    

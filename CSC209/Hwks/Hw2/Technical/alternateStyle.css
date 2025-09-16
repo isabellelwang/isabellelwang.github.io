@@ -1,0 +1,91 @@
+.navbar {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0px; 
+    font-size: 25px; 
+    color: rgb(59, 146, 44); 
+}
+
+#name {
+    font-size:30px; 
+    margin-bottom:0;
+    color: rgb(59, 146, 44); 
+}
+
+#year {
+    font-size:25px; 
+    margin-top: 10px; 
+    margin-bottom:0;
+    color: rgb(59, 146, 44); 
+}
+
+
+#major {
+    font-size:25px; 
+    margin-top: 10px;
+    color: rgb(59, 146, 44); 
+}
+
+#schedule {
+    font-size:30px; 
+    padding:10px;
+}
+
+.layout {
+    display: flex;
+}
+
+.header {
+    flex: 20%; 
+    padding: 20px; 
+}
+
+.main {
+    flex: 80%; 
+    text-align: center; 
+    margin: auto; 
+    color: green;
+}
+
+.additionals {
+    padding-top: 30px; 
+    font-size: 25px; 
+    color: green; 
+}
+
+.intro {
+    padding-bottom: 50px; 
+    padding-top: 20px; 
+    color: green; 
+}
+
+table, th, td {
+    border: 1px solid rgb(8, 140, 61); 
+    width: 950px; 
+    font-size: 20px; 
+    margin: auto;
+
+}
+
+tr {
+    text-align: center; 
+    height: 50px; 
+}
+
+img {
+    display: block; 
+    margin: auto; 
+    width: 500px; 
+    height: auto; 
+    padding: 10px; 
+}
+
+.layoutButton {
+    margin-bottom: 20px; 
+    color: green; 
+}
+
+.button {
+    margin-bottom: 10px; 
+    color: green; 
+}

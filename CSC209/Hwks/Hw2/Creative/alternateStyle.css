@@ -1,0 +1,153 @@
+.body {
+    background-color: rgb(183, 213, 183); 
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+}
+.navbar {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0px; 
+    font-size: 25px; 
+    color: rgb(15, 56, 8); 
+    border: 0.5px solid rgb(8, 37, 13); 
+}
+
+.navbar li a {
+  display: block;
+  background-color: #61ab65;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid rgb(8, 37, 13); 
+}
+
+.navbar li a:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+#name {
+    font-size:30px; 
+    margin-bottom:0;
+    color: rgb(59, 146, 44); 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#year {
+    font-size:25px; 
+    margin-top: 10px; 
+    margin-bottom:0;
+    color: rgb(59, 146, 44); 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+#major {
+    font-size:25px; 
+    margin-top: 10px;
+    color: rgb(59, 146, 44); 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#schedule {
+    font-size:30px; 
+    padding:10px;
+}
+
+.layout {
+    display: flex;
+}
+
+.header {
+    flex: 20%; 
+    padding: 20px; 
+    background-color: #d4dad4;
+    height: 100vh; 
+}
+
+.main {
+    flex: 80%; 
+    text-align: center; 
+    margin: auto; 
+    color: rgb(37, 55, 37);
+}
+
+.additionals {
+    padding-top: 30px; 
+    font-size: 25px; 
+    color: green; 
+}
+
+.intro {
+    padding-bottom: 50px; 
+    padding-top: 20px; 
+    color: rgb(31, 50, 31); 
+}
+
+table, th, td {
+    border: 1px solid rgb(5, 66, 29); 
+    width: 950px; 
+    font-size: 20px; 
+    margin: auto;
+}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+tr {
+    text-align: center; 
+    height: 50px; 
+}
+
+tr:nth-child(even) {
+    background-color: #ebe8e8;
+}
+
+tr:nth-child(odd) {
+    background-color: #bfbdbd;
+}
+
+img {
+    display: block; 
+    margin: auto; 
+    width: 700px; 
+    height: auto; 
+    padding: 10px; 
+}
+
+.layoutButton {
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-bottom: 20px; 
+    color: rgb(255, 255, 255);
+    border-radius: 12px 12px 12px 12px;
+}
+
+.layoutButton:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.button {
+    margin-bottom: 30px; 
+    color: rgb(255, 255, 255); 
+    background-color: #1f572a; /* Green */
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px 12px 12px 12px;
+}

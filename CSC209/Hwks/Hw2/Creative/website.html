@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" id="layouts"/>
+    <link rel="alternate stylesheet" href="alternateStyle.css"/>
+    <title></title>
+  </head>
+  <body class="body">
+    <div class="layout">
+      <div class="header">
+        <div class="intro">
+          <h2 id="name">Isabelle Wang</h1>
+          <h2 id="year">Fall 2025</h1>
+          <h2 id="major">CS Major</h1>
+        </div>
+        <ul class="navbar">
+          <li><a href="files/dummy.txt">Home</a></li>
+          <li><a href="files/dummy.txt">Schedule</a></li>
+          <li><a href="files/dummy.txt">Syllabus</a></li>
+          <li><a href="files/dummy.txt">Requirements</a></li>
+          <li><a href="files/dummy.txt">Textbooks</a></li>
+        </ul>
+        <div class="additionals">
+            <h3> Additional Links</h3>
+          <dl> 
+            <dt> <a href="files/dummy.txt">HowTo</a></dt>
+            <dt> <a href="files/dummy.txt">Resources</a></dt>
+          </dl>
+        </div>
+      </div>
+    <div class="main"> 
+      <img id="image" src="img/Smith.png">  
+      <h2 id="schedule"> Fall 2025 Schedule </h2>
+      <h4 id="changes"></h4>
+      <button id="but" class="button" type="button" onclick="showUpdatedDate()">Click to see last updated date</button>
+      
+      <table> 
+        <tr> 
+          <th>Course</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Location</th>
+          <th> Professor</th>
+          <th> Syllabus</th>
+        </tr>
+        <tr>
+          <td>CSC209: Web Programming</td>
+          <td>Tues, Thurs</td>
+          <td> 10:50A-12:05P</td>
+          <td> Ford 242</td>
+          <td> Prof. Streinu </td>
+          <td> <a href="files/syllabus.txt"> Syllabus</a></td>
+        </tr>
+        <tr>
+          <td>CSC252: Algorithms</td>
+          <td> Mon, Wed, Fri</td>
+          <td> 1:20P-2:35P </td>
+          <td> Ford 240</td>
+          <td> Prof. Grubb</td>
+          <td> <a href="files/syllabus.txt"> Syllabus</a></td>
+        </tr>
+        <tr> 
+          <td>SDS210: Intro to Statistics</td>
+          <td>Mon, Wed, Fri</td>
+          <td>10:50A-12:05P</td>
+          <td>McConnell 401</td>
+          <td>Prof.Hopper</td>
+          <td> <a href="files/syllabus.txt"> Syllabus</a></td>
+        </tr>
+        <tr>
+          <td> SDS/CSC109: Communicating w/ Data</td>
+          <td>Tues, Thurs</td>
+          <td>2:35P-4P</td>
+          <td>Sabin-Reed 106</td>
+          <td>Prof.Mosca</td>
+          <td> <a href="files/syllabus.txt"> Syllabus</a></td>
+        </tr>
+        <tr>
+          <td> SDS100: Computing w/ Data</td>
+          <td>Tues</td>
+          <td>1:20P-2:35P</td>
+          <td>Bass 002</td>
+          <td>Prof. Clemans</td>
+          <td> <a href="files/syllabus.txt"> Syllabus</a></td>
+        </tr>
+      </table>
+      
+      <h4 id="layouts"></h4>
+      <button class="layoutButton" type="button" onclick="changeStyle()">Click to change layout</button>
+      <script>
+        function showUpdatedDate() {
+          var change = document.getElementById("changes"); 
+
+          if (change.innerHTML === "") {
+            change.innerHTML = "Last updated on Sept. 13, 2025";
+            change.style.color = "black"; 
+            document.getElementById("but").textContent = "Hide";
+          } else {
+            change.innerHTML = "";
+            document.getElementById("changes").setAttribute("style", "color: rgb(183, 213, 183)");
+            document.getElementById("but").textContent = "Click to see last updated date";
+          }
+        }
+        
+        function changeStyle() {
+          var currentStyle = document.getElementById('layouts').getAttribute('href'); 
+          if (currentStyle == 'style.css') {
+            document.getElementById('layouts').setAttribute('href', 'alternateStyle.css'); 
+            document.getElementById('image').setAttribute('src', 'img/smithBackground.jpeg');
+          }
+          else {
+            document.getElementById('layouts').setAttribute('href', 'style.css'); 
+            document.getElementById('image').setAttribute('src', 'img/Smith.png');
+          }
+        }
+      </script>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

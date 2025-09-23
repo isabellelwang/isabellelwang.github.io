@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" id="layouts"/>
+    <link rel="alternate stylesheet" href="../css/alternateStyle.css"/>
+  </head>
+  <body class="body">
+    <div class="layout">
+      <div class="header">
+        <div class="intro">
+          <h2 id="name">Isabelle Wang</h1>
+          <h2 id="year">Fall 2025</h1>
+          <h2 id="major">CS Major</h1>
+        </div>
+        <ul class="navbar">
+          <li><a href="../files/dummy.txt">Home</a></li>
+          <li><a href="../files/dummy.txt">Schedule</a></li>
+          <li><a href="../files/dummy.txt">Syllabus</a></li>
+          <li><a href="../files/dummy.txt">Requirements</a></li>
+          <li><a href="../files/dummy.txt">Textbooks</a></li>
+        </ul>
+        <div class="additionals">
+            <h3> Additional Links</h3>
+          <dl> 
+            <dt> <a href="../files/dummy.txt">HowTo</a></dt>
+            <dt> <a href="../files/dummy.txt">Resources</a></dt>
+          </dl>
+        </div>
+      </div>
+
+
+    <div class="main"> 
+      <div class="slideshow"> 
+        <div class="mySlides fade">
+          <img src="../img/Smith.png" style="width:50%">
+        </div>
+        <div class="mySlides fade">
+          <img src="../img/smithBackground.jpeg" style="width:50%">
+        </div>
+        <div class="mySlides fade">
+          <img src="../img/fallSmith.png" style="width:50%">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)"><</a>
+        <a class="next" onclick="plusSlides(1)">></a>
+      </div>
+
+      <h2 id="schedule"> Fall 2025 Schedule </h2>
+      <h4 id="credit"></h4>
+      <h4 id="date"></h4>
+      <button id="creditButton" class="button" type="button" onclick="showCredits()">Credits</button>
+      <button id="dateButton" class="button" type="button" onclick="showDate()">Today's Date is</button>
+      <button id="scheduleButton" class="button" type="button" onclick="hideSchedule()">Hide Schedule</button>
+
+      <table id = "table-schedule"> 
+        <tr id="course-headers"> 
+          <th>Course</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Location</th>
+          <th>Professor</th>
+          <th>Syllabus</th>
+          <th>Hide/Show</th>
+        </tr>
+        <tr id="course1">
+          <td>CSC209: Web Programming</td>
+          <td>Tues, Thurs</td>
+          <td> 10:50A-12:05P</td>
+          <td> Ford 242</td>
+          <td> Prof. Streinu </td>
+          <td> <a href="../files/syllabus.txt"> Syllabus</a></td>
+          <td><button class="rowButton" type="button" onclick="hideRow('course1')">Hide row</button></td>
+        </tr>
+        <tr id="course2">
+          <td>CSC252: Algorithms</td>
+          <td> Mon, Wed, Fri</td>
+          <td> 1:20P-2:35P </td>
+          <td> Ford 240</td>
+          <td> Prof. Grubb</td>
+          <td> <a href="../files/syllabus.txt"> Syllabus</a></td>
+          <td><button class="rowButton" type="button" onclick="hideRow('course2')">Hide row</button></td>
+        </tr>
+        <tr id="course3"> 
+          <td>SDS210: Intro to Statistics</td>
+          <td>Mon, Wed, Fri</td>
+          <td>10:50A-12:05P</td>
+          <td>McConnell 401</td>
+          <td>Prof. Hopper</td>
+          <td> <a href="../files/syllabus.txt"> Syllabus</a></td>
+          <td><button class="rowButton" type="button" onclick="hideRow('course3')">Hide row</button></td>
+        </tr>
+        <tr id="course4">
+          <td> SDS/CSC109: Communicating w/ Data</td>
+          <td>Tues, Thurs</td>
+          <td>2:35P-4P</td>
+          <td>Sabin-Reed 106</td>
+          <td>Prof. Mosca</td>
+          <td> <a href="../files/syllabus.txt"> Syllabus</a></td>
+          <td><button class="rowButton" type="button" onclick="hideRow('course4')">Hide row</button></td>
+        </tr>
+        <tr id="course5">
+          <td> SDS100: Computing w/ Data</td>
+          <td>Tues</td>
+          <td>1:20P-2:35P</td>
+          <td>Bass 002</td>
+          <td>Prof. Clemans</td>
+          <td> <a href="../files/syllabus.txt"> Syllabus</a></td>
+          <td><button class="rowButton" type="button" onclick="hideRow('course5')">Hide row</button></td>
+        </tr>
+      </table>
+      
+      <h4 id="layouts"></h4>
+      <button class="layoutButton" type="button" onclick="changeStyle()">Click to change layout</button>
+      </div>
+    </div>
+  </div>
+  <script src="../js/website.js"></script>
+  </body>
+</html>

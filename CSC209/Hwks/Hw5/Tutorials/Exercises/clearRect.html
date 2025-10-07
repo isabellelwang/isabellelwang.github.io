@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>HTML5 Canvas - clearRect()</h1>
+
+    <canvas
+      id="myCanvas"
+      width="300"
+      height="150"
+      style="border: 1px solid black"
+    >
+      Sorry, your browser does not support canvas.
+    </canvas>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "pink";
+      ctx.fillRect(10, 10, 150, 100);
+
+      ctx.clearRect(60, 35, 50, 50);
+    </script>
+  </body>
+</html>

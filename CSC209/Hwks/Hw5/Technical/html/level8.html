@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var NRPTS = 6;
+      const colors = [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown",
+        "black",
+        "gray",
+      ];
+      const pts = [];
+      const NRSTEPS = 100;
+      var interval = null;
+      var count = 0;
+      var ctx = null;
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Level 8</h1>
+    <h1 id="showNumPts"></h1>
+    <h2 id="boxVal"></h2>
+    <canvas
+      id="myCanvas"
+      width="500"
+      height="500"
+      style="border: 1px solid #000000"
+    ></canvas>
+    <button onclick="changePos()">Change Positions</button>
+    <button onclick="moveCircles()">Start</button>
+    <button onclick="reset()">Reset</button>
+    Number of Points:
+    <input type="text" id="numPts" onchange="changeNumPts()" />
+
+    <script src="../js/level8.js"></script>
+    <script>
+      createCircles();
+      showNumPts();
+    </script>
+  </body>
+</html>

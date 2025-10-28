@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/comparisonTable.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        text-align: center;
+        padding: 16px;
+      }
+
+      th:first-child,
+      td:first-child {
+        text-align: left;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f3f310;
+      }
+
+      .fa-check {
+        color: green;
+      }
+
+      .fa-remove {
+        color: red;
+      }
+    </style>
+    <script>
+      var ROW =
+        "<tr><td>Sample text</td><td><i class=CHECKCROSS1></i></td><td><i class=CHECKCROSS2></i></td></tr>";
+    </script>
+  </head>
+  <body>
+    <h2>Comparison Table</h2>
+    <p>
+      The link tag connects the html page to external references like the
+      stylesheet based on the href link. When it is at the head, the stylesheet
+      is first called upon before the html body runs and when elements in the
+      html file have attributes like class and id that are styled, it will refer
+      to the external files from the link tag.
+    </p>
+
+    <table id="tt">
+      <tr>
+        <th style="width: 50%">Name</th>
+        <th>Part 1</th>
+        <th>Part 2</th>
+      </tr>
+      <tr>
+        <td>Sample text</td>
+        <td><i class="fa fa-remove"></i></td>
+        <td><i class="fa fa-check"></i></td>
+      </tr>
+    </table>
+    <script>
+      function addRow(param1, param2) {
+        var newRow = "";
+
+        if (param1 == "check") {
+          newRow = ROW.replace("CHECKCROSS1", '"fa fa-check"');
+        } else {
+          newRow = ROW.replace("CHECKCROSS1", '"fa fa-remove"');
+        }
+
+        if (param2 == "check") {
+          newRow = newRow.replace("CHECKCROSS2", '"fa fa-check"');
+        } else {
+          newRow = newRow.replace("CHECKCROSS2", '"fa fa-remove"');
+        }
+
+        let table = document.getElementById("tt");
+        table.innerHTML += newRow;
+      }
+
+      addRow("check", "cross");
+    </script>
+  </body>
+</html>

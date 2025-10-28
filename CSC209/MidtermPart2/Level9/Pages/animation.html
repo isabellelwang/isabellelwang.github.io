@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      var NRPTS = 6;
+      const colors = [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown",
+        "black",
+        "gray",
+      ];
+      const pts = [];
+      var NRSTEPS = 100;
+      var interval = null;
+      var count = 0;
+      var ctx = null;
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Particles</h1>
+    <h2 id="showNumPts"></h2>
+    <h2 id="boxVal"></h2>
+    <h2 id="showNumSteps"> </h2>
+    
+    <div> 
+        <button onclick="moveCircles()">Start</button>
+        <button onclick="changePos()">Change Positions</button>
+        <button onclick="reset()">Reset</button>
+        Number of Particles:
+        <input type="text" id="numPts" onchange="changeNumPts()" value = "6" />
+        Number of Steps:
+        <input type="text" id="numSteps" onchange="changeSteps()" value = "100"/>
+
+        Trace <input type="checkbox" id = "trace"></button>
+        <h3>Temperatures </h3>
+        <select id="temps">
+            <option value="freeze" >Freezing</option>
+            <option value="room">Room</option>
+            <option value="hot">Hot</option>
+        </select>
+    </div>
+
+    <canvas
+      id="myCanvas"
+      width="500"
+      height="500"
+      style="border: 1px solid #000000"
+    ></canvas>
+
+    <script src="../js/animation.js"></script>
+    <script>
+      createCircles();
+      showNumPts();
+      showNumSteps(); 
+    </script>
+  </body>
+</html>

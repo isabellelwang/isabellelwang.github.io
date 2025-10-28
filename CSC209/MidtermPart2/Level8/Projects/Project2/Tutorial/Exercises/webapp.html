@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <title>Document</title>
+</head>
+<body id="b">
+    <h1 id="Title"> Welcome! <h1> 
+    <h3 id = "date"></h3>
+    <input type ="button" id = "dateButton" onclick = "showDate()" value = "Show Date"</button> 
+    <table id = "table-images">
+        <tr>
+            <th> Picture </th>
+            <th> Checkbox</th>
+        </tr>
+        <tr>
+            <td><img class = "images" id = "img1" src="./img/Smith.png"></td>
+            <td><input type="checkbox" class = "check" onclick="hideImage('img1')"></button></td>
+        </tr>
+        <tr id="row2">
+            <td><img class = "images" id = "img2" src="./img/fallSmith.png"></td>
+            <td><input type="checkbox" class = "check" onclick="hideImage('img2')"></button></td>
+        </tr>
+        <tr id="row3">
+            <td><img class = "images" id = "img3" src="./img/housing.png"></td>
+            <td><input type="checkbox" class = "check" onclick="hideImage('img3')"></button></td>
+        </tr>
+        <tr id="row4">
+            <td><img class = "images" id = "img4" src="./img/smithBackground.jpeg"></td>
+            <td><input type="checkbox" class = "check" onclick="hideImage('img4')"></button></td>
+        </tr>
+    </table> 
+    <input type="radio" id="changeBackground" onclick="changeBackground()">change background </input>  
+    <input type="radio" id="changeText" onclick="changeText()">change text </input>  
+    <script src="script.js"></script>
+</body>
+</html>

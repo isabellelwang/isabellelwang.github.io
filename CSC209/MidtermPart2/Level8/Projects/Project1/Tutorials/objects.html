@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Creating JavaScript Objects</h1>
+    <h2>Using the new Keyword</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      // Create an Object
+      const cat = new Object({
+        firstName: "Mickey",
+        age: 6,
+        eyeColor: "blue",
+        breed: "domestic shorthair",
+      });
+
+      // Diplay Object Content
+      document.getElementById("demo").innerHTML =
+        cat.firstName + " is " + cat.age + " years old.";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/verticalTabs.css" />
+    <script>
+      var NRTABS = 4;
+      var CAPITAL = ["Paris", "Tokyo", "Beijing", "Manila"];
+      var COUNTRY = ["France", "Japan", "China", "Phillipines"];
+      var TAB_TEMPLATE =
+        '<div id=CAP class="tabcontent"><h3>CAP</h3><p>CAP is the capital of CTRY.</p></div>';
+      var BUTTON_TEMPLATE =
+        '<button class="tablinks" onclick="openCity(event, CAP)">CAP</button>';
+    </script>
+  </head>
+  <body>
+    <h2>Vertical Tabs</h2>
+    <p>Click on the buttons inside the tabbed menu:</p>
+    <div>
+      <input id="checkColor" type="checkbox" onclick="changeColor()">Change Background Color</input>
+    </div>
+
+    <div class="tab">
+      <button
+        class="tablinks"
+        onclick="openCity(event, 'London')"
+        id="defaultOpen"
+      >
+        London
+      </button>
+    </div>
+
+    <div id="London" class="tabcontent">
+      <h3>London</h3>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <script src="../js/verticalTabs.js"></script>
+    <script>
+      addNewTabs();
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>

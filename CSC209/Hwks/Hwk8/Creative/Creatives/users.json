@@ -1,0 +1,39 @@
+[
+    {
+        "username": "alice",
+        "password": "password",
+        "loggedtimes": 6,
+        "minuteslogged": [
+            12,
+            8,
+            19,
+            33,
+            22
+        ]
+    },
+    {
+        "username": "carol",
+        "password": "letmein",
+        "loggedtimes": 11,
+        "minuteslogged": [
+            16,
+            21,
+            38,
+            0
+        ]
+    },
+    {
+        "username": "erin",
+        "password": "0101",
+        "loggedtimes": 3,
+        "minuteslogged": [
+            27,
+            0
+        ]
+    },
+    {
+        "username": "cathy",
+        "password": "helloworld",
+        "loggedtimes": 2
+    }
+]

@@ -1,0 +1,35 @@
+[{
+    "event": "Orchestra concert", 
+    "image": "../listings/symphony.webp",
+    "id": 0,
+    "date": "05/09/2026", 
+    "location": "Northampton",
+    "start-time": "18:30", 
+    "end-time": "21:00", 
+    "description": "Orchestra playing pieces by Chopin and Lizst",
+    "host": "alice"
+}, 
+{
+    "event": "Pottery", 
+    "image": "../listings/pottery.webp",
+    "id": 1,
+    "date": "05/12/2026", 
+    "location": "Northampton",
+    "start-time": "13:00", 
+    "end-time": "14:00", 
+    "description": "Pottery for beginners.", 
+    "host": "bob"
+}, 
+{
+    "event": "Pottery", 
+    "image": "../listings/pottery.webp",
+    "id": 2,
+    "date": "05/12/2026", 
+    "location": "Amherst",
+    "start-time": "13:00", 
+    "end-time": "14:00", 
+    "description": "Pottery for beginners.", 
+    "host": "bob"
+}
+]
+

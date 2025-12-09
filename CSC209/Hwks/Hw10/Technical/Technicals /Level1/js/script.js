@@ -98,33 +98,6 @@ function showSlide(n) {
     document.getElementById('slideCounter').textContent = (currentSlide + 1) + ' / ' + totalSlides;
 }
 
-                // Change slide by offset
-                function changeSlide(offset) {
-                    showSlide(currentSlide + offset);
-                }
-
-                // Auto-advance slideshow
-                function autoAdvance() {
-                    if (isPlaying) {
-                        changeSlide(1);
-                    }
-                }
-
-                // Toggle play/pause
-                function toggleSlideshow() {
-                    const btn = document.getElementById('playPauseBtn');
-                    if (isPlaying) {
-                        isPlaying = false;
-                        btn.textContent = 'Play';
-                        clearInterval(slideshowInterval);
-                    } else {
-                        isPlaying = true;
-                        btn.textContent = 'Pause';
-                        slideshowInterval = setInterval(autoAdvance, 3000);
-                    }
-                }
-
-
 function deleteUser(username) {
     var xmlhttp = new XMLHttpRequest();
     

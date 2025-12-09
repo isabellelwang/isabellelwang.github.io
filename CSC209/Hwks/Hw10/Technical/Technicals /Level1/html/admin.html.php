@@ -40,7 +40,6 @@
         <input type="button" value="Refresh" onclick="refresh()">
     </div>
     
-    <!-- External JS file with makeTable, sortedTable, timeLoggedIn functions -->
     <script src="../js/script.js"></script>
     
     <script>

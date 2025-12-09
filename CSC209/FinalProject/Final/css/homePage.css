@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+}
+
+/* Top bar */
+.homeBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #35604c;
+    padding: 15px 25px;
+    color: white;
+}
+
+.homeBar h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.homeBar h3 {
+    margin: 0;
+    font-weight: normal;
+}
+
+.homeBar img {
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Listings Section
+.listing {
+    padding: 20px;
+}
+
+#listTab {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#listTab td {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Layout container */
+            .content-container {
+                display: flex;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+    
+            .left {
+                width: 40%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .left h2 {
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            .listing {
+                width: 60%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .listing h3 {
+                font-size: 20px;
+                color: #333;
+                margin-bottom: 16px;
+            }
+
+            .listings-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 3fr);
+                gap: 10px;
+            }
+
+            .event-card {
+                width: 90%;
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                transition: transform 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+            }
+
+            .event-image {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                background: #e0e0e0;
+            }
+
+            .event-content {
+                padding: 12px;
+            }
+
+            .event-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 8px;
+            }
+
+            .event-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                margin-bottom: 8px;
+            }
+
+            .info-row {
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                color: #666;
+            }
+
+            .info-icon {
+                margin-right: 6px;
+                font-size: 14px;
+            }
+
+            .event-description {
+                font-size: 12px;
+                color: #555;
+                line-height: 1.4;
+                margin-top: 8px;
+                border-top: 1px solid #eee;
+                padding-top: 8px;
+                overflow: hidden;
+            }
+
+            .event-time {
+                font-weight: 500;
+                color: #2563eb;
+            }
+
+            .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.modal-content input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #45a049;
+}

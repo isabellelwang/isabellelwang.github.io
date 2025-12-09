@@ -45,5 +45,17 @@
         "username": "cathy",
         "password": "helloworld",
         "loggedtimes": 5
+    },
+    {
+        "username": "oi",
+        "password": "123",
+        "loggedtimes": 0,
+        "minuteslogged": []
+    },
+    {
+        "username": "123",
+        "password": "123",
+        "loggedtimes": 0,
+        "minuteslogged": []
     }
 ]

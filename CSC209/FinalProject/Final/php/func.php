@@ -47,22 +47,6 @@ function findAllLocations($file) {
     return arr; 
 }
 
-//returns a list of events that are in a specifc location
-function filterEvents($file, $location) {
-    $events = []; 
-    if (file_exists($file)) {
-        $x = file_get_contents($file); 
-        $items = json_decode($x, true); 
-
-        for ($i=0; $i<count($items); $i++) {
-            if ($items[i]["location"] == location) {
-                array_push($events, $items[$i]); 
-            }
-        }
-    }
-    return $events; 
-}
-
 //returns all events
 function getEvents($file) {
     if (file_exists($file)) {
@@ -73,6 +57,48 @@ function getEvents($file) {
     }   
 
     return $items; 
+}
+
+function convertToMilitaryTime($time) {
+    $time_arr = explode(" ", $time); 
+    $time_int = (int)$time_arr[0]; 
+    $period = $time_arr[1]; 
+    
+    if ($period == "AM") {
+        if ($time_int == 12) {
+            return "0";  
+        } else {
+            return (string)$time_int; 
+        }
+    } else if ($period == "PM") {
+        if ($time_int == 12) {
+            return "12";  
+        } else {
+            return (string)($time_int + 12); 
+        }
+    }
+    
+    return (string)$time_int;  
+}
+
+function getBookmarkedEvents() {
+    $username = $_SESSION["username"];
+    $usersFile = '../data/users.json';
+    $bookmarkedPosts = [];
+    
+    if (file_exists($usersFile)) {
+        $jsonContent = file_get_contents($usersFile);
+        $users = json_decode($jsonContent, true);
+        
+        foreach ($users as $user) {
+            if ($user['username'] == $username) {
+                $bookmarkedPosts = $user['bookmarkedPosts'] ?? [];
+                break;
+            }
+        }
+    }
+
+    return $bookmarkedPosts; 
 }
 ?>
 

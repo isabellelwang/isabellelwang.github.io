@@ -6,9 +6,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="loginBody">
     <div class="login-container">
         <h2>Smith Friends</h2>
         <form action="./html/lib.html.php" method="post">
@@ -107,7 +107,7 @@ session_start();
             
             xmlhttp.open("POST", "./php/registerUser.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send("username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&location="+encodeURIComponent(location));
+            xmlhttp.send("&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&location="+encodeURIComponent(location));
             
             return false;
         }

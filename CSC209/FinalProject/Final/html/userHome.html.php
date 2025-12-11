@@ -1,147 +1,300 @@
 <html> 
     <head> 
-    <?php 
-    session_start();
-    ?> 
-        <link rel="stylesheet" href="../css/homePage.css">
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
-
-            /* Layout container */
-            .content-container {
-                display: flex;
-                width: 100%;
-                margin-top: 20px;
-            }
-
-    
-            .left {
-                width: 40%;
-                padding: 20px;
-                box-sizing: border-box;
-            }
-
-            .left h2 {
-                font-size: 24px;
-                color: #333;
-                margin-bottom: 20px;
-            }
-
-            .listing {
-                width: 60%;
-                padding: 20px;
-                box-sizing: border-box;
-            }
-
-            .listing h3 {
-                font-size: 20px;
-                color: #333;
-                margin-bottom: 16px;
-            }
-
-            .listings-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 3fr);
-                gap: 10px;
-            }
-
-            .event-card {
-                width: 90%;
-                background: white;
-                border-radius: 8px;
-                overflow: hidden;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-                transition: transform 0.2s, box-shadow 0.2s;
-                cursor: pointer;
-            }
-
-            .event-image {
-                width: 100%;
-                height: 120px;
-                object-fit: cover;
-                background: #e0e0e0;
-            }
-
-            .event-content {
-                padding: 12px;
-            }
-
-            .event-title {
-                font-size: 16px;
-                font-weight: 600;
-                color: #333;
-                margin-bottom: 8px;
-            }
-
-            .event-info {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-                margin-bottom: 8px;
-            }
-
-            .info-row {
-                display: flex;
-                align-items: center;
-                font-size: 12px;
-                color: #666;
-            }
-
-            .info-icon {
-                margin-right: 6px;
-                font-size: 14px;
-            }
-
-            .event-description {
-                font-size: 12px;
-                color: #555;
-                line-height: 1.4;
-                margin-top: 8px;
-                border-top: 1px solid #eee;
-                padding-top: 8px;
-                overflow: hidden;
-            }
-
-            .event-time {
-                font-weight: 500;
-                color: #2563eb;
-            }
-        </style>
-        
-    </head>         
-    <body> 
-        <div class="homeBar"> 
+<?php 
+include '../php/func.php'; 
+session_start();
+?> 
+        <link rel="stylesheet" href="../css/style.css">
+        <script> 
+        const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+        ]; 
+        </script> 
+    </head> 
+    <body class="homeBody"> 
+        <div class="homePageBar"> 
             <h1> Smith Friends </h1> 
-            <h3> Welcome, <?php echo $_SESSION["username"] ?>!</h3> 
+            <h3> Welcome, user <?php echo $_SESSION["username"] ?>!</h3> 
 <?php 
             $path = "../Users/" . $_SESSION["username"] . "/profile/";
-            $profile_pic = glob($path . "*.{jpg,jpeg,png,gif,webp}", GLOB_BRACE); 
-?>
+            $profile_image = glob($path . "*.{jpg,jpeg,png,gif,webp}", GLOB_BRACE); 
+            if (count($profile_image) != 0) {
+                $profile_pic = $profile_image[0]; 
+            } else {
+                $profile_pic = "../Users/defaultPFP.png"; 
+            }
+
+?>          
+            <a href="userEditPost.html.php">Add/Edit Event Posts</a>
             <a href="userProfile.html.php">
-                <img src="<?php echo $profile_pic[0];?>">
+                <img src="<?php echo $profile_pic;?>">
             </a>
         </div>
         
         <!-- Content container with 30/70 split -->
-        <div class="content-container">
-            <!-- Left column - 30% -->
-            <div class="left"> 
+        <div class="homePageContentContainer">
+            <div class="homePageLeft"> 
                 <h2>Your Upcoming Events</h2>
-                <!-- Add your left side content here -->
+
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prev-month">‹</button>
+                        <div id="month-year"></div>
+                            <button id="next-month">›</button>
+                        </div>
+                        <div class="calendar-body">
+                        <div class="calendar-weekdays">
+                            <div class="calendar-weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                        </div>
+                        <div class="calendar-dates">
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <!-- Right column - 70% -->
             <div class="listing">
-                <h3>Upcoming Events</h3> 
-                <div class="listings-grid" id="listingsContainer"></div>
+                <h3>Find Events</h3> 
+                <button class="filter-btn" onclick="openModal('modal-location')">Filter Events</button>
+                <button class="filter-btn" onclick="openModal('modal-time')">Filter Times</button>
+                <button class="filter-btn" onclick="showBookmarked()">See Bookmarked</button> 
+                <button class="filter-btn" onclick="getAllListings()">See All Events </button> 
+                <div class="listings-grid" id="listingsContainer">
+                    No events found :( 
+                </div>
             </div>
         </div>
-    </body> 
-    <script> 
-        function getListings() {
+
+        <div class="modal" id="modal-location">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-location', 'filterForm')">&times;</span>
+                <h2>Filter Location</h2>
+               <form id="filterForm" onsubmit="filterLocations(event)">
+                    <label for="location">Choose Location: </label>
+                    <select id="loc" name="filter-location">
+                        <option value="Any">Any</option>
+                    </select>
+                    <input type="submit" value="Apply">
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-time">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-time', 'timeForm')">&times;</span>
+                <h2>Filter Time</h2>
+                <form id="timeForm" onsubmit="filterTimes(event)">
+                    <label>Choose start time: </label>
+                    <select id="starttime">
+                        <option value="Any">Any</option>
+                    </select>
+                    <label>Choose end time: </label>
+                    <select id="endtime">
+                        <option value="Any">Any</option>
+                    </select>
+                    <input type="submit" value="Apply">
+                </form>
+            </div>
+        </div>
+
+        
+    <script src="../js/script.js"></script>
+    <script>    
+        const userBookmarks = <?php echo json_encode(getBookmarkedEvents()); ?>;
+        const calendarDates = document.querySelector('.calendar-dates');
+        const monthYear = document.getElementById('month-year');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        prevMonthBtn.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+            }
+            renderCalendar(currentMonth, currentYear);
+        });
+
+        nextMonthBtn.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar(currentMonth, currentYear);
+        });
+
+        calendarDates.addEventListener('click', (e) => {
+            if (e.target.textContent !== '') {
+                filterDates(e); 
+            }
+});     
+        function showBookmarked() {
+            const container = document.getElementById('listingsContainer'); 
+            if (userBookmarks.length == 0) {
+                container.innerHTML = "<h5> No Events Happening :( </h5>"; 
+            }
+            else {
+                updateListings(userBookmarks, container, userBookmarks); 
+            }
+        }
+
+        function filterDates(e) {
+            e.preventDefault(); 
+            const events = <?php echo json_encode(getEvents("../data/listing.json")); ?>; 
+            const container = document.getElementById('listingsContainer'); 
+
+            var day = String(e.target.textContent); 
+            var month = String(currentMonth + 1); 
+            var year = String(currentYear);
+            var selectedDate = year + "-" + month + "-" + day; 
+            
+            dated_events = []; 
+            for (const event of events) {
+                var eventDate = event.date;
+
+                if (eventDate == selectedDate) {
+                    dated_events.push(event); 
+                }
+            }
+            
+            if (dated_events.length == 0) {
+                container.innerHTML = "<h5> No Events Happening :( </h5>"; 
+            }
+            else {
+                updateListings(dated_events, container, userBookmarks); 
+            }
+        }
+    
+        function filterTimes(e) {
+            e.preventDefault(); 
+            const events = <?php echo json_encode(getEvents("../data/listing.json")); ?>; 
+            const container = document.getElementById('listingsContainer');
+
+            var startTime_str = document.getElementById("starttime").value; 
+            var endTime_str = document.getElementById("endtime").value; 
+
+
+            filtered_events = []; 
+            if (startTime_str == "Any") {
+                if (endTime_str == "Any") {
+                    getAllListings(); 
+                    return 
+                }
+                else {
+                    var endTime_int = convertTo24Hour(endTime_str); 
+
+                    for (const event of events) {
+                        //look through each end time for each event and check if it occurs before the selected end Time
+                        end_str = event['end-time']; 
+                        end_arr = end_str.split(':'); 
+                        end_int = parseInt(end_arr[0]); 
+                        if (end_int <= endTime_int) {
+                            filtered_events.push(event); 
+                        }
+                    }
+                }
+            } else {
+                if (endTime_str == "Any") {
+                    var startTime_int = convertTo24Hour(startTime_str); 
+
+                    for (const event of events) {
+                        //look through each end time for each event and check if it occurs before the selected end Time
+                        start_str = event['start-time']; 
+                        start_arr = start_str.split(':'); 
+                        start_int = parseInt(start_arr[0]); 
+                        if (start_int >= startTime_int) {
+                            filtered_events.push(event); 
+                        }
+                    }
+                }
+                else {
+                    var startTime_int = convertTo24Hour(startTime_str); 
+                    var endTime_int = convertTo24Hour(endTime_str); 
+
+                    for (const event of events) {
+                        //look through each end time for each event and check if it occurs before the selected end Time
+                        start_str = event['start-time']; 
+                        start_arr = start_str.split(':'); 
+                        start_int = parseInt(start_arr[0]); 
+
+                        end_str = event['end-time']; 
+                        end_arr = end_str.split(':'); 
+                        end_int = parseInt(end_arr[0]); 
+
+                        if ((start_int >= startTime_int) && (end_int <= endTime_int)) {
+                            filtered_events.push(event); 
+                        }
+                    }
+                }
+
+                if (filtered_events.length == 0) {
+                        container.innerHTML = "<h5> No Event Happening :( </h5>"; 
+                 }
+                else {
+                    updateListings(filtered_events , container, userBookmarks); 
+                }
+            }
+        }
+
+        function filterLocations(e) {
+            e.preventDefault(); //prevents a reload so the function can process the code. 
+            <?php 
+            if (file_exists("../data/listing.json")) {
+                $json_content = file_get_contents("../data/listing.json"); 
+                $items = json_decode($json_content, true);
+            } else {
+                $items = array();
+            }   
+?>
+            const events = <?php echo json_encode($items); ?>; 
+            var dropdown = document.getElementById("loc"); 
+            var filteredLocation = dropdown.value; 
+
+            if (filteredLocation == "Any") {
+                getAllListings(); 
+            }
+            else {
+                var location_events = []; 
+                for (const event of events) {
+                    if (event.location == filteredLocation) {
+                        location_events.push(event); 
+                    }
+                }
+
+                const container = document.getElementById('listingsContainer');
+
+                // Clear existing content
+                container.innerHTML = '';
+                updateListings(location_events, container, userBookmarks); 
+            }
+        }
+
+        function populateLocationFilter() {
+            var locations = <?php echo json_encode(findAllLocations("../data/listing.json")); ?>;
+            var selection = document.getElementById("loc"); 
+
+            locations.forEach(location => {
+                var opt = document.createElement('option'); 
+                opt.value = location; 
+                opt.textContent = location; 
+                selection.appendChild(opt); 
+            }); 
+        }
+
+        function getAllListings() {
 <?php 
             if (file_exists("../data/listing.json")) {
                 $json_content = file_get_contents("../data/listing.json"); 
@@ -156,46 +309,14 @@
             
             // Clear existing content
             container.innerHTML = '';
-            
-            // Create cards for each event
-            events.forEach(event => {
-                const card = document.createElement('div');
-                card.className = 'event-card';
-                card.setAttribute('data-id', event.id);
-                
-                card.innerHTML = `
-                    <img src="${event.image}" alt="${event.event}" class="event-image">
-                    <div class="event-content">
-                        <h2 class="event-title">${event.event}</h2>
-                        <div class="event-info">
-                            <div class="info-row">
-                                <span class="info-icon">Date: </span>
-                                <span>${event.date}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">Location: </span>
-                                <span>${event.location}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">Time: </span>
-                                <span class="event-time">${event['start-time']} - ${event['end-time']}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">Host: </span>
-                                <span>${event.host}</span>
-                            </div>
 
-                        </div>
-                        <div class="event-description">
-                            ${event.description}
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            });
+            updateListings(events, container, userBookmarks); 
         }
         
-        window.addEventListener('DOMContentLoaded', getListings);
-    </script> 
+        getAllListings();
+        populateLocationFilter(); 
+        populateTimeFilter("starttime", "endtime"); 
+        renderCalendar(currentMonth, currentYear);
+    </script>
+    </body> 
 </html>

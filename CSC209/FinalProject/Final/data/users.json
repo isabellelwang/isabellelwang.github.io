@@ -3,9 +3,6 @@
         "username": "alice",
         "password": "1234",
         "location": "Northampton",
-        "posts": [
-            0
-        ],
         "bookmarkedPosts": [],
         "is_admin": true
     },
@@ -13,7 +10,6 @@
         "username": "bob",
         "password": "hello",
         "location": "Northampton",
-        "posts": [],
         "bookmarkedPosts": [],
         "is_admin": false
     },
@@ -21,7 +17,6 @@
         "username": "amy",
         "password": "1234",
         "location": "Northampton",
-        "posts": [],
         "bookmarkedPosts": [],
         "is_admin": false
     },
@@ -29,7 +24,6 @@
         "username": "ainsley",
         "password": "123",
         "location": "Northampton",
-        "posts": [],
         "bookmarkedPosts": [],
         "is_admin": false
     },
@@ -37,7 +31,20 @@
         "username": "hello",
         "password": "123",
         "location": "Northampton",
-        "posts": [],
+        "registeredPosts": [],
+        "is_admin": false
+    },
+    {
+        "username": "jill",
+        "password": "okay",
+        "location": "Florence",
+        "registeredPosts": [],
+        "is_admin": false
+    },
+    {
+        "username": "isabelle",
+        "password": "1234",
+        "location": "Northampton",
         "registeredPosts": [],
         "is_admin": false
     }

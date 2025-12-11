@@ -1,35 +1,57 @@
-[{
-    "event": "Orchestra concert", 
-    "image": "../listings/symphony.webp",
-    "id": 0,
-    "date": "05/09/2026", 
-    "location": "Northampton",
-    "start-time": "18:30", 
-    "end-time": "21:00", 
-    "description": "Orchestra playing pieces by Chopin and Lizst",
-    "host": "alice"
-}, 
-{
-    "event": "Pottery", 
-    "image": "../listings/pottery.webp",
-    "id": 1,
-    "date": "05/12/2026", 
-    "location": "Northampton",
-    "start-time": "13:00", 
-    "end-time": "14:00", 
-    "description": "Pottery for beginners.", 
-    "host": "bob"
-}, 
-{
-    "event": "Pottery", 
-    "image": "../listings/pottery.webp",
-    "id": 2,
-    "date": "05/12/2026", 
-    "location": "Amherst",
-    "start-time": "13:00", 
-    "end-time": "14:00", 
-    "description": "Pottery for beginners.", 
-    "host": "bob"
-}
+[
+    {
+        "event": "Symphony Orchestra",
+        "image": "..\/listings\/693a5e6652911_orchestra.jpg",
+        "id": 2,
+        "date": "2025-12-12",
+        "location": "Northampton",
+        "start-time": "19:00",
+        "end-time": "22:00",
+        "description": "Pieces by Lizst and Chopin!",
+        "host": "bob"
+    },
+    {
+        "event": "Pottery",
+        "image": "..\/listings\/693ae0982c762_pottery-wheel-1_600x600.jpg.webp",
+        "id": 3,
+        "date": "2025-12-20",
+        "location": "Northampton",
+        "start-time": "14:00",
+        "end-time": "15:00",
+        "description": "Making vases.",
+        "host": "alice"
+    },
+    {
+        "event": "Study Group!",
+        "image": "..\/listings\/693ae4876ff96_study.jpeg",
+        "id": 4,
+        "date": "2025-12-20",
+        "location": "Florence",
+        "start-time": "15:00",
+        "end-time": "19:00",
+        "description": "Study CS for finals",
+        "host": "amy"
+    },
+    {
+        "event": "Zootopia",
+        "image": "..\/listings\/693ae4e3eb659_cinema.jpg",
+        "id": 5,
+        "date": "2025-12-30",
+        "location": "Amherst",
+        "start-time": "19:00",
+        "end-time": "22:00",
+        "description": "Let's watch zootopia",
+        "host": "jill"
+    },
+    {
+        "event": "Bird Watching",
+        "image": "..\/listings\/693af13867e99_1200.jpeg",
+        "id": 6,
+        "date": "2025-12-13",
+        "location": "Northampton",
+        "start-time": "6:00",
+        "end-time": "9:00",
+        "description": "Bird Watching",
+        "host": "alice"
+    }
 ]
-

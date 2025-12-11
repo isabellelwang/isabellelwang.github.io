@@ -1,7 +1,7 @@
 [
     {
-        "username": "bruh",
-        "password": "dawg",
+        "username": "bure",
+        "password": "wwww",
         "loggedtimes": 46,
         "minuteslogged": [
             12,
@@ -44,6 +44,14 @@
     {
         "username": "cathy",
         "password": "helloworld",
-        "loggedtimes": 5
+        "loggedtimes": 6
+    },
+    {
+        "username": "alice",
+        "password": "password",
+        "loggedtimes": 1,
+        "minuteslogged": [
+            1765326366
+        ]
     }
 ]

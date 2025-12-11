@@ -62,14 +62,13 @@
                     if (table != null) {
                         table.remove(); 
                     }
-                        
+            
                     // update
                     arr = users; 
                     makeTable(arr);
                         
                 }
             };
-            
             // Open and send the request to the PHP script
             xmlhttp.open("GET", "../php/admin.php", true);
             xmlhttp.send();

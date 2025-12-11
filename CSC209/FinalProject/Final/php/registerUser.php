@@ -11,8 +11,8 @@ if (!file_exists($usersFile)) {
     // If file doesn't exist, create it with empty array
     $users = array();
 } else {
-    $jsonContent = file_get_contents($usersFile);
-    $users = json_decode($jsonContent, true);
+    $content = file_get_contents($usersFile);
+    $users = json_decode($content, true);
 }
 
 // Check if username already exists
@@ -31,20 +31,11 @@ echo json_encode([
         "message" => "Successfully Registered!"
 ]);
 
-// {
-//     "username": "bob",
-//     "password": "hello", 
-//     "location": "Northampton",
-//     "posts": [], 
-//     "registeredPosts": [], 
-//     "is_admin": false
-// }
 // Create new user entry
 $newUser = array(
     "username" => $username,
     "password" => $password,
     "location" => $location, 
-    "posts" => array(), 
     "registeredPosts" => array(), 
     "is_admin" => false
 );
@@ -56,5 +47,5 @@ $users[] = $newUser;
 $userFolder = "../Users/" . $username;
 mkdir($userFolder); 
 
-# JSON PRetty print is for formatting. 
+# JSON Pretty print is for formatting. 
 file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT)); 
